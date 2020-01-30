@@ -1,35 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
-import List from './List';
+import Todos from './components/Todos';
 import './App.css';
 
-function formatName(user){
-  return user.firstname + " " + user.lastname;
-}
 
-function getHeader(user){
-  if (user){
-    return <h4 className="header">{formatName(user)}</h4>;
+class App extends Component {
+  state = {
+    todos: [
+      {
+        id: 1,
+        title: 'Take out the trash',
+        completed: false
+      },
+      {
+        id: 2,
+        title: 'Take out the trash 2',
+        completed: false
+      },
+      {
+        id: 3,
+        title: 'Take out the trash 3',
+        completed: false
+      }
+    ]
   }
-  return <h4>Welcome</h4>;
-}
-
-const user = {
-  firstname: "Anthony",
-  lastname: "Vespoli"
-};
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>To-Do List</h1>
-      </header>
-      <main id="main" class="container">
-        <List name="Anthony"/>
-      </main>
-    </div>
-  );
+  render (){
+    return (
+      <div className="App">
+        <Todos todos={this.state.todos}/>
+      </div>
+    ) 
+  }
 }
 
 export default App;
