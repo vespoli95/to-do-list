@@ -73,3 +73,7 @@ ul#to-do-list {
 ul {
   padding-inline-start: 0px;
 }
+
+button#add_task {
+  margin: 5px 0px 5px 5px;
+}
